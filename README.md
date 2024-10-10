@@ -1,2 +1,2 @@
-# sample spring boot cloud run
+# sample mutlti cloud runs
 monorepoでSpring Bootアプリを複数のCloud Runサービスでデプロイするためのリポジトリ
