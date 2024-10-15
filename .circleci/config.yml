@@ -1,3 +1,19 @@
 version: 2.1
 
 setup: true
+
+orbs:
+  path-filtering: circleci/path-filtering@1.0.0
+
+workflows:
+  setup-workflow:
+    jobs:
+      - path-filtering/filter:
+          name: check-updated-files
+          base-revision: main # 指定したブランチとの変更差分を検知する
+          config-path: .circleci/no-updates.yml
+          mapping: |
+            .* always-continue true .circleci/common-config.yml
+            services/service1/.* pipeline-service1 true .circleci/services/service1-config.yml
+            services/service2/.* pipeline-service2 true .circleci/services/service2-config.yml
+            libs/lib1/.* pipeline-lib1 true .circleci/libs/lib1-config.yml

@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  sample-job:
+    executor: openjdk
+    working_directory: ~/project/libs/lib1
+    steps:
+      - checkout:
+          path: ~/project
+      - sample-cmd
+
+workflows:
+  lib1:
+    jobs:
+      - sample-job
