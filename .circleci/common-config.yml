@@ -54,7 +54,7 @@ commands:
       - run:
           name: Check Image Existence in Artifact Registry
           command: |
-            gcloud artifacts docker images list ${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT}/sample-springboot-cloudrun/helloworld --include-tags --filter="tags:${IMAGE_TAG}" | grep "${IMAGE_TAG}"
+            gcloud artifacts docker images list ${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT}/sample-springboot-cloudrun/helloworld --include-tags --filter="tags:${IMAGE_TAG}" --quiet | grep "${IMAGE_TAG}"
             if [ $? -eq 0 ]; then
               echo "Image: ${IMAGE_TAG} already exists in Artifact Registry. Halting the Workflow."
               circleci step halt
