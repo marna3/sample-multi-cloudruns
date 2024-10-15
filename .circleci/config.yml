@@ -10,7 +10,7 @@ workflows:
     jobs:
       - path-filtering/filter:
           name: check-updated-files
-          base-revision: main # 指定したブランチとの変更差分を検知する
+          base-revision: << pipeline.git.base_revision >> # 現在のブランチの変更差分を検知する
           config-path: .circleci/no-updates.yml
           mapping: |
             .* always-continue true .circleci/common-config.yml
