@@ -27,8 +27,9 @@ jobs:
           path: ~/project
       - setup_remote_docker:
           docker_layer_caching: true
-      - image_build
       - gcloud_setting
+      - check-image-existence
+      - image_build
       - image_push
   ## deploy jobs
 
