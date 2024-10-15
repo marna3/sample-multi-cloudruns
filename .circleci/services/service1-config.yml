@@ -32,6 +32,13 @@ jobs:
       - image_build
       - image_push
   ## deploy jobs
+  service1-deploy:
+    executor: openjdk
+    working_directory: ~/project/services/service1
+    steps:
+      - checkout:
+          path: ~/project
+      - sample-cmd # 仮コマンド
 
 workflows:
   service1:
@@ -49,3 +56,8 @@ workflows:
           filters:
             branches:
               only: main
+      - service1-deploy:
+          context:
+            - GoogleCloud
+          requires:
+            - service1-build-and-push
