@@ -18,7 +18,10 @@ parameters:
 executors:
   openjdk:
     docker:
-      - image: 'cimg/openjdk:17.0'
+      - image: '${GCP_REGION}.pkg.dev/${GCP_PROJECT}/docker-remote/cimg/openjdk:17.0'
+        auth:
+          username: _json_key
+          password: ${GCP_SERVICE_ACCOUNT_KEY}
 
 commands:
   ## services commands

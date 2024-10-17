@@ -46,7 +46,10 @@ workflows:
       - service1-pre-build-app: 
           context: 
             - SonarCloud
-      - service1-pre-build-docker
+            - GoogleCloud
+      - service1-pre-build-docker:
+          context:
+            - GoogleCloud
       - service1-build-and-push:
           context:
             - GoogleCloud
