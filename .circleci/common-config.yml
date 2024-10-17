@@ -20,7 +20,7 @@ executors:
     docker:
       - image: '${GCP_REGION}.pkg.dev/${GCP_PROJECT}/docker-remote/maven:3.9.9-eclipse-temurin-21'
         auth:
-          username: _json_key
+          username: _json_key_base64
           password: ${GCP_SERVICE_ACCOUNT_KEY}
 
 commands:
