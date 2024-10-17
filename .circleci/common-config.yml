@@ -18,7 +18,7 @@ parameters:
 executors:
   openjdk:
     docker:
-      - image: '${GCP_REGION}.pkg.dev/${GCP_PROJECT}/docker-remote/cimg/openjdk:17.0'
+      - image: '${GCP_REGION}.pkg.dev/${GCP_PROJECT}/docker-remote/maven:3.9.9-eclipse-temurin-21'
         auth:
           username: _json_key
           password: ${GCP_SERVICE_ACCOUNT_KEY}
